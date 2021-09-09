@@ -14,7 +14,7 @@
       "id": "3f93b127-2175-4de3-ab70-534013be9dc8",
       "comment": "",
       "command": "open",
-      "target": "/shakedApp1/",
+      "target": "/DevOps_Project/",
       "targets": [],
       "value": ""
     }, {
@@ -211,7 +211,7 @@
       "value": "mnmsite"
     }, {
       "id": "069a4ca9-7468-4ad3-859f-9a0bb27d5d95",
-      "comment": "", 
+      "comment": "",
       "command": "click",
       "target": "name=contact",
       "targets": [
