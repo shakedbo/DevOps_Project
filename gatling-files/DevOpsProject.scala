@@ -42,5 +42,5 @@ class DevOpsProject extends Simulation {
 			.formParam("contact", "212121")
 			.check(status.is(404)))
 
-	setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+	setUp(scn.inject(rampUsers(10) over (5 seconds)))).protocols(httpProtocol)
 }
