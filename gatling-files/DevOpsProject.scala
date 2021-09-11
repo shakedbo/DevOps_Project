@@ -34,21 +34,15 @@ class DevOpsProject extends Simulation {
 		.exec(http("request_0")
 			.post("/DevOps_Project/guru_register")
 			.headers(headers_0)
-			.formParam("first_name", "shaked")
-			.formParam("last_name", "bozi")
-			.formParam("username", "sbozi")
-			.formParam("password", "ab123456")
-			.formParam("address", "hit")
-			.formParam("contact", "212121")
+			.formParam("username", "Sbozi")
+			.formParam("password", "Aa123456")
 			.check(status.is(404)))
 
-	setUp(
-		scn.inject(
+	setUp(scn.inject(
 			nothingFor(5.seconds),
-			atOnceUsers(45),
-			//rampUsersPerSec(1).to(45).during(10.seconds),
-			//constantUsersPerSec(45) during (40.seconds),
-			//rampUsersPerSec(45).to(1).during(10.seconds)
-		).protocols(httpProtocol)
-	)
+			atOnceUsers(1),
+			rampUsersPerSec(1).to(45).during(10.seconds),
+			constantUsersPerSec(45) during (40.seconds),
+			rampUsersPerSec(45).to(1).during(10.seconds))
+			.protocols(httpProtocol)
 }
