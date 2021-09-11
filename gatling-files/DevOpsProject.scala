@@ -50,7 +50,7 @@ class DevOpsProject extends Simulation {
 			// rampUsers(10).during(10.seconds),
 			// rampUsersPerSec(1).to(30).during(15.seconds),
 			rampUsersPerSec(1).to(45).during(20.seconds),
-			atOnceUsers(45)
+			atOnceUsers(45),
 			rampUsersPerSec(45).to(1).during(40.seconds)
 			//rampUsersPerSec(45).to(1).during(30.seconds)
 			//heavisideUsers(45).during(60.seconds),
