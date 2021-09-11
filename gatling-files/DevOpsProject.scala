@@ -13,6 +13,8 @@ class DevOpsProject extends Simulation {
 		.acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
 		.acceptEncodingHeader("gzip, deflate")
 		.acceptLanguageHeader("en-US,en;q=0.9,he-IL;q=0.8,he;q=0.7")
+		.contentTypeHeader("application/x-www-form-urlencoded")
+		.originHeader("http://localhost:8081")
 		.upgradeInsecureRequestsHeader("1")
 		.userAgentHeader("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36")
 
@@ -30,8 +32,25 @@ class DevOpsProject extends Simulation {
 
 	val scn = scenario("DevOpsProject")
 		.exec(http("request_0")
-			.get("/DevOps_Project/page2.jsp")
-			.headers(headers_0))
+			.post("/DevOps_Project/guru_register")
+			.headers(headers_0)
+			.formParam("first_name", "shaked")
+			.formParam("last_name", "bozi")
+			.formParam("username", "sbozi")
+			.formParam("password", "ab123456")
+			.formParam("address", "hit")
+			.formParam("contact", "212121")
+			.check(status.is(404)))
 
-	setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+	setUp(
+		scn.inject(
+			nothingFor(5.seconds), 
+			//atOnceUsers(1),
+			rampUsersPerSec(1).to(45).during(10.seconds),
+		    //atOnceUsers(45),
+			constantUsersPerSec(45) during (40.seconds),
+			rampUsersPerSec(45).to(1).during(10.seconds)
+			//heavisideUsers(45).during(60.seconds),
+		).protocols(httpProtocol)
+	)
 }
