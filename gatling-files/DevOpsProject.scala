@@ -45,11 +45,13 @@ class DevOpsProject extends Simulation {
 	setUp(
 		scn.inject(
 			nothingFor(5.seconds), 
-			atOnceUsers(45),
+			atOnceUsers(1),
 			//nothingFor(5.seconds), 
 			// rampUsers(10).during(10.seconds),
 			// rampUsersPerSec(1).to(30).during(15.seconds),
-			rampUsersPerSec(1).to(45).during(60.seconds),
+			rampUsersPerSec(1).to(45).during(10.seconds),
+			nothingFor(40.seconds),
+			rampUsersPerSec(45).to(1).during(10.seconds)
 			//rampUsersPerSec(45).to(1).during(30.seconds)
 			//heavisideUsers(45).during(60.seconds),
 			//rampUsers(45).during(60 seconds)
