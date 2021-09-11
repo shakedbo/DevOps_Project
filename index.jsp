@@ -9,7 +9,7 @@
 <body>
 <h1>Guru Register Form</h1>
 <%
-   String myPage = "page2/index.jsp";
+   String myPage = "page2.jsp";
 %>
 <form action="guru_register" method="post">
 			<table style="with: 50%">
