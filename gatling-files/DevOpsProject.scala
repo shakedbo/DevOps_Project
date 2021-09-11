@@ -46,15 +46,10 @@ class DevOpsProject extends Simulation {
 		scn.inject(
 			nothingFor(5.seconds), 
 			atOnceUsers(1),
-			//nothingFor(5.seconds), 
-			// rampUsers(10).during(10.seconds),
-			// rampUsersPerSec(1).to(30).during(15.seconds),
-			rampUsersPerSec(1).to(45).during(20.seconds),
-			atOnceUsers(45),
-			rampUsersPerSec(45).to(1).during(40.seconds)
-			//rampUsersPerSec(45).to(1).during(30.seconds)
+			rampUsersPerSec(1).to(45).during(10.seconds),
+		    //atOnceUsers(45),
+			rampUsersPerSec(45).to(1).during(10.seconds)
 			//heavisideUsers(45).during(60.seconds),
-			//rampUsers(45).during(60 seconds)
 		).protocols(httpProtocol)
 	)
 }
