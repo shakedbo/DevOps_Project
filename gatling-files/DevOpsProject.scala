@@ -17,6 +17,7 @@ class DevOpsProject extends Simulation {
 		.userAgentHeader("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36")
 
 	val headers_0 = Map(
+		"Cache-Control" -> "max-age=0",
 		"Sec-Fetch-Dest" -> "document",
 		"Sec-Fetch-Mode" -> "navigate",
 		"Sec-Fetch-Site" -> "same-origin",
