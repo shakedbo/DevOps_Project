@@ -7,7 +7,7 @@
 <title>Guru Registration Form</title>
 </head>
 <body>
-<h1>Guru Register Form</h1>
+<h1>DevOps Customer Registration</h1>
 <%
    String myPage = "page2.jsp";
 %>
